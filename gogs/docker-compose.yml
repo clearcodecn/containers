@@ -1,0 +1,8 @@
+version: '2'
+services:
+  gogs:
+    image: gogs/gogs:latest
+    environment:
+      - VIRTUAL_HOST="gogs.me"
+    ports:
+      - 3000:3000

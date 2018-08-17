@@ -1,0 +1,12 @@
+version: '2'
+services: 
+  postfix: 
+    image: tozd/postfix
+    ports:
+      - 4650:465
+      - 5870:587
+      - 2500:25
+    environment:
+      MAILNAME: 'review.org' 
+      MY_DESTINATION: 'localhost'
+      ROOT_ALIAS: 'admin@review.org'

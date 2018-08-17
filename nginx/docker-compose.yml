@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  nginx-php-fpm:
+    image: richarvey/nginx-php-fpm:latest
+    environment:
+    volumes:
+      - /Users/mac/Desktop/111:/var/www/html
+      - ./conf/nginx/nginx-site.conf:/etc/nginx/sites-available/default.conf

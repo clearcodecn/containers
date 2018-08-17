@@ -1,0 +1,10 @@
+version: '2'
+services: 
+  redis:
+    image: redis:latest
+    command: redis-server --requirepass redis --appendonly yes
+    container_name: redis
+    ports:
+       - "63790:6379"
+    volumes:
+      - ./data:/data

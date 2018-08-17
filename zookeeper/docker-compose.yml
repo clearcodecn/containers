@@ -1,0 +1,11 @@
+version: '2'
+services:
+  zoo:
+    image: zookeeper
+    restart: always
+    container_name: zookeeper
+    ports:
+      - 2181:2181
+    volumes:
+      - ./data:/data
+      - ./log:/datalog
