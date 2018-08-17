@@ -1,7 +1,7 @@
 version: '2'
 services:
   geth:
-    image: geth
+    build: .
     ports:
       # 8545 TCP, used by the HTTP based JSON RPC API
       # 8546 TCP, used by the WebSocket based JSON RPC API
@@ -12,6 +12,3 @@ services:
       - 30303:30303
       - 30304:30304
     container_name: geth
-    volumes:
-      - ./init:/init
-    command: "/geth init /init.json && bootnode --genkey=boot.key &&  bootnode --nodekey=boot.key && /geth --datadir=/data"
