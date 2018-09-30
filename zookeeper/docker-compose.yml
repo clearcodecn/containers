@@ -8,4 +8,19 @@ services:
       - 2181:2181
     volumes:
       - ./data:/data
-      - ./log:/datalog
+  zkui:
+    image: maauso/zkui
+    restart: always
+    container_name: zkui
+    environment:
+      ZKLIST: zoo:2181
+    ports:
+      - 21810:9090
+  zkui-remote:
+    image: maauso/zkui
+    restart: always
+    container_name: zkui-remote 
+    environment:
+      ZKLIST: 192.168.11.200:2181
+    ports:
+      - 21811:9090

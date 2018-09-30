@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  etcd:
+    image: consul:latest
+    volumes:
+      - ./data:/consul/data
+    ports:
+      - 8500:8500
+      - 2380:2380

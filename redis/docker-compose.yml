@@ -5,6 +5,7 @@ services:
     command: redis-server --requirepass redis --appendonly yes
     container_name: redis
     ports:
-       - "63790:6379"
+       - "6379:6379"
+
     volumes:
       - ./data:/data
