@@ -8,7 +8,3 @@ services:
     ports:
       - 9200:9200
       - 9230:9230
-  kibana:
-    image: kibana
-    ports:
-      - 5601:5601

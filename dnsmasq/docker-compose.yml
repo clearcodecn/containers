@@ -1,0 +1,8 @@
+version: '2'
+services:
+  dnsmasq: 
+    image: andyshinn/dnsmasq:2.75
+    ports:
+      - 53:53
+      - 
+      docker run -p 53:53/tcp -p 53:53/udp --cap-add=NET_ADMIN andyshinn/dnsmasq:2.75
