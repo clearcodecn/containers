@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipreporter
+spec:
+  selector:
+    matchLabels:
+      app: ipreporter
+  template:
+    metadata:
+      labels:
+        app: ipreporter
+    spec:
+      containers:
+      - name: ipreporter
+        image: clearcodecn/ipreporter
+        command:
+          - app
+          - -r
+        imagePullPolicy: Always
