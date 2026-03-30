@@ -1,12 +1,32 @@
-version: '3.1'
+version: '3.8'
 
 services:
-  db:
-    image: mysql:5.6
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: vegetables
-    volumes:
-      - ./data:/var/lib/mysql
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-server
+    restart: always
     ports:
-      - 33060:3306
+      - "13306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Xa4#1a214'  # 强密码
+      MYSQL_DATABASE: test                       # 默认数据库
+      TZ: Asia/Shanghai                          # 时区
+      # 默认字符集配置
+      LANG: C.UTF-8
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    volumes:
+      - ./data:/var/lib/mysql                    # 数据挂载
+    # 强制设置数据库字符集
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --default-storage-engine=INNODB
+    networks:
+      - mysql-network
+    security_opt:
+      - seccomp:unconfined
+
+networks:
+  mysql-network:
+    driver: bridge
